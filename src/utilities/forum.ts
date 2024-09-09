@@ -36,7 +36,8 @@ export enum Selector {
     REPLY_FORM_DATA = 'form .f_one input',
     USERS_THREAD = '#u-contentmain table tr',
     PICWALL_SWITCH_LINK = '.fr.gray3>a',
-
+    TOP_ADV_BANNER = '#header>*:first-child',
+    TOP_ADV_SELLER = '#header>*:last-child'
 
 }
 

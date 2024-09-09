@@ -32,22 +32,14 @@ export default async function TASK_HidePostImage(item: HTMLElement | Document) {
 
         // 隐藏图片
         // console.info(`开始隐藏帖子图片`);
-        $img.addClass('spp-hide');
+        $img.addClass('spp-scale');
         const $wrapper = $(
-            `<div class="spp-img-mask">
-                <span>
-                    <img class="spp-img-mask-icon-hide" alt="" src="images/post/smile/smallface/face106.gif"/>
-                    <img class="spp-img-mask-icon-show spp-hide" alt="" src="images/post/smile/smallface/face109.gif"/>
-                    <span class="spp-img-mask-text">看看是啥</span>
-                </span>
-            </div>`,
+            `<div class="spp-img-mask"></div>`,
         );
         // 用replace会把$img里面的data给清掉, 啊这..害我找半天
         // $img.replaceWith(wrapper);
         $img.after($wrapper);
         $wrapper.append($img);
-        // 修复论坛过大图片的会超出容器的问题
-        $img.width('100%');
 
         // 如果开启了按需加载
         let $loading: JQuery<HTMLElement>;
@@ -68,8 +60,8 @@ export default async function TASK_HidePostImage(item: HTMLElement | Document) {
         });
         $wrapper.on('click', (e) => {
             e.stopPropagation();
-            $img.toggleClass('spp-hide');
-            if ($img.hasClass('spp-hide')) {
+            $img.toggleClass('spp-scale');
+            if ($img.hasClass('spp-scale')) {
                 if (!isInViewport($wrapper[0] as HTMLElement)) {
                     $wrapper[0].scrollIntoView({
                         behavior: 'smooth',
@@ -81,12 +73,13 @@ export default async function TASK_HidePostImage(item: HTMLElement | Document) {
                 $wrapper.attr('id', 'spp-img-last-seen');
             }
 
-            $wrapper.find('.spp-img-mask-icon-hide').toggleClass('spp-hide');
-            $wrapper.find('.spp-img-mask-icon-show').toggleClass('spp-hide');
-            if ($loading) $loading.toggleClass('spp-hide');
-            if (loadImageOnDemand && !$img.hasClass('spp-hide')) {
+            $wrapper.find('.spp-img-mask-icon-hide').toggleClass('spp-scale');
+            $wrapper.find('.spp-img-mask-icon-show').toggleClass('spp-scale');
+            if ($loading) $loading.toggleClass('spp-scale');
+            if (loadImageOnDemand && !$img.hasClass('spp-scale')) {
                 $img.attr('src', $img.data('src'));
             }
+            $img.width('100%');
         });
 
     });

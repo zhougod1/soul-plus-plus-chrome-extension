@@ -39,6 +39,7 @@ export default [
         new Switch('按需加载图片', 'load-image-on-demand').init(),
         new Switch('替换用户头像', 'replace-user-avatar').init(),
         new Switch('折叠版块公告大图', 'hide-forum-rule-image').init(),
+        new Switch('折叠顶部广告', 'hide-top-adv-image').init()
     ]).init(),
 
 

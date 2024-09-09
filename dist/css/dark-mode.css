@@ -1,0 +1,74 @@
+b, body, html, input, select, textarea, span,
+h1, h2, h3, h4, h5, h6,
+tr, td {
+    color: #bbb2a4 !important;
+}
+
+* {
+    border-color: #5f6368 !important;
+}
+
+body, html, button, input, select, textarea,
+.f_one, .r_one, .t_one, .z .tr3:hover, .abtn, .btn2, #profile-menubar, #infobox,
+.tr4, .tips, .menu, .menu .ul2 li a:hover {
+    background-color: #202124;
+}
+
+a {
+    color: #bdc1c6 !important;
+}
+
+.stream li{
+    background-color: #2d2e30 !important;
+}
+
+.stream li font[color='#0000FF']{
+    color: #10caf4 !important;
+}
+
+
+button {
+    color: #eae8e1;
+}
+
+textarea, input {
+    background: #303134;
+}
+
+.blockquote {
+    color: #e8eaed;
+}
+
+.user-info, .user-infotwo {
+    background: #303134;
+}
+
+.spp-img-upload > .drop-zone {
+    border: 2px dashed whitesmoke !important;
+    background: #212121;
+
+}
+
+a.spp-viewed-thread {
+    color: #686868 !important
+}
+
+.spp-last-viewed-thread a {
+    color: #5ba1d2 !important
+}
+
+.spp-last-viewed-thread {
+    background: #373737 !important
+}
+
+.spp-adforum-result a {
+    color: #848484 !important
+}
+
+.spp-buy-refresh-free {
+    color: whitesmoke !important;
+}
+
+fieldset#smiliebox,.u-h5,.set-tab-table {
+    background: initial !important
+}

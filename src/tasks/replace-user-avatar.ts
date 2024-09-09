@@ -7,6 +7,7 @@ import $ from 'jquery';
 import CSS from '@/css/replace-user-avatar.css';
 
 let replaceUserAvatar: boolean | undefined;
+let hoverTimer: ReturnType<typeof setTimeout> | undefined;
 
 export default async function TASK_ReplaceUserAvatar(item: HTMLElement | Document) {
 
@@ -34,7 +35,7 @@ export default async function TASK_ReplaceUserAvatar(item: HTMLElement | Documen
         // 生成独一无二的Identicon
         let svg = createAvatar(style, {
             seed: uid,
-            size: 100,
+            size: 158,
             colorLevel: 600,
         });
 
@@ -46,12 +47,20 @@ export default async function TASK_ReplaceUserAvatar(item: HTMLElement | Documen
 
         // 切换头像的事件
         $container.on('mouseenter', () => {
-            $img.toggleClass('spp-hide');
-            $svg.toggleClass('spp-hide');
+            hoverTimer = setTimeout(function() {
+                $img.toggleClass('spp-hide');
+                $svg.toggleClass('spp-hide');
+            }, 1000)
         });
         $container.on('mouseleave', () => {
-            $img.toggleClass('spp-hide');
-            $svg.toggleClass('spp-hide');
+            if(hoverTimer) {
+                clearTimeout(hoverTimer);
+                hoverTimer = undefined;
+            }
+            if(!$img.hasClass('spp-hide')) {
+                $img.toggleClass('spp-hide');
+                $svg.toggleClass('spp-hide');
+            }
         });
     });
 

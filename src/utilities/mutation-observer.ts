@@ -3,6 +3,7 @@ import TASK_ReplaceUserAvatar from '@/tasks/replace-user-avatar';
 import TASK_HideForumRuleImage from '@/tasks/hide-forum-rule-image';
 import TASK_LinkToReplied from '@/tasks/link-to-replied';
 import { DarkModeStylesReplacer } from '@/tasks/dark-mode';
+import TASK_HideTopAdvImage from '@/tasks/hide-top-adv.image';
 
 export default async function MutationObserverProcess(
     options = {
@@ -26,6 +27,9 @@ export default async function MutationObserverProcess(
     }
 
     async function procAddedNodes(node: Node) {
+        if ((node as HTMLElement).id === 'header') {
+            TASK_HideTopAdvImage();
+        }
         if ((node as HTMLElement).tagName === 'IMG') {
             TASK_HidePostImage(node as HTMLElement);
             TASK_ReplaceUserAvatar(node as HTMLElement);
